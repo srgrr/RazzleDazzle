@@ -2,17 +2,17 @@ from numpy import random
 import sys
 
 game = {
-  8:  lambda p, s: (p, s + p * 10),
-  9:  lambda p, s: (p, s + p * 8),
-  10: lambda p, s: (p, s + p * 5),
-  11: lambda p, s: (p, s + p * 5),
-  12: lambda p, s: (p, s + p * 5),
-  13: lambda p, s: (p, s + p * 5),
-  14: lambda p, s: (p, s + p * 1.5),
-  15: lambda p, s: (p, s + p * 1.5),
-  16: lambda p, s: (p, s + p * 1.5),
-  17: lambda p, s: (p, s + p * 1.5),
-  18: lambda p, s: (p, s + p * 10),
+  8:  lambda p, s: (p, s + p * 20),
+  9:  lambda p, s: (p, s + p * 16),
+  10: lambda p, s: (p, s + p * 10),
+  11: lambda p, s: (p, s + p * 10),
+  12: lambda p, s: (p, s + p * 10),
+  13: lambda p, s: (p, s + p * 10),
+  14: lambda p, s: (p, s + p * 3),
+  15: lambda p, s: (p, s + p * 3),
+  16: lambda p, s: (p, s + p * 3),
+  17: lambda p, s: (p, s + p * 3),
+  18: lambda p, s: (p, s + p * 20),
   19: lambda p, s: (p, s // 2),
   20: lambda p, s: (p, s),
   21: lambda p, s: (p, s),
@@ -33,20 +33,21 @@ game = {
   36: lambda p, s: (p, s),
   37: lambda p, s: (p, s // 2),
   38: lambda p, s: (p, s // 2),
-  39: lambda p, s: (p, s + p * 1.5),
-  40: lambda p, s: (p, s + p * 1.5),
-  41: lambda p, s: (p, s + p * 1.5),
-  42: lambda p, s: (p, s + p * 1.5),
-  43: lambda p, s: (p, s + p * 5),
-  44: lambda p, s: (p, s + p * 5),
-  45: lambda p, s: (p, s + p * 5)
+  39: lambda p, s: (p, s + p * 3),
+  40: lambda p, s: (p, s + p * 3),
+  41: lambda p, s: (p, s + p * 3),
+  42: lambda p, s: (p, s + p * 3),
+  43: lambda p, s: (p, s + p * 10),
+  44: lambda p, s: (p, s + p * 10),
+  45: lambda p, s: (p, s + p * 10),
+  46: lambda p, s: (p, s + p * 16)
 }
 
 goal, roll = map(int, sys.argv[1:])
 
 score, multiplier, money_spent = 0, 1, 0
 
-while score < goal:
+while score < 2 * goal:
   money_spent += multiplier * roll
   dice_roll_sum = \
     sum(random.randint(1, 6) for _ in range(8))
